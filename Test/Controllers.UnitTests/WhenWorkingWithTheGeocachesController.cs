@@ -6,7 +6,6 @@ using Moq;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
-
 namespace Test.Controllers.UnitTests
 {
     public class WhenWorkingWithTheGeocachesController
@@ -20,7 +19,6 @@ namespace Test.Controllers.UnitTests
             geocacheRepository = new Mock<IGeocacheRepository>();
 
             controller = new GeocachesController(geocacheRepository.Object);
-            
         }
 
         /// <summary>
@@ -30,7 +28,7 @@ namespace Test.Controllers.UnitTests
         /// </summary>
         /// <param name="controller">GeocachesController to change model state</param>
         /// <param name="model">Geocache object to validate</param>
-        public void ValidateModel(ref GeocachesController controller, object model)
+        protected void ValidateModel(ref GeocachesController controller, object model)
         {
             controller.ModelState.Clear();
 

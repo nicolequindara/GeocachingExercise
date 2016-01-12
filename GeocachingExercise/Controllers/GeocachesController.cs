@@ -35,6 +35,7 @@ namespace GeocachingExercise.Controllers
 
             if (id == null)
             {
+                // No id provided in request
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
@@ -42,9 +43,11 @@ namespace GeocachingExercise.Controllers
 
             if (geocache == null)
             {
+                // No geocache found with this id
                 return HttpNotFound();
             }
 
+            // Valid geocache object found
             return View(geocache);
         }
 
@@ -70,6 +73,7 @@ namespace GeocachingExercise.Controllers
                 return RedirectToAction("Index");
             }
 
+            // Display validation errors for invalid geocache object on Create.cshtml
             return View(geocache);
         }
 

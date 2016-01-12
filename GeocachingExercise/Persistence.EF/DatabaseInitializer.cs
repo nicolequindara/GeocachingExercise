@@ -13,6 +13,7 @@ namespace GeocachingExercise.Persistence.EF
         {
             base.Seed(context);
             
+            // Seed 15 valid geocache objects
             for(int ii = 1; ii <= 10; ii++)
             {
                 Geocache cache = new Geocache
@@ -29,7 +30,7 @@ namespace GeocachingExercise.Persistence.EF
 
         private double RandomLatitude()
         {
-            lock (random) // Random was no threadsafe
+            lock (random) // Random was not threadsafe
             {
                 return -90.0 + random.NextDouble() * 180.0;
             }
@@ -37,7 +38,7 @@ namespace GeocachingExercise.Persistence.EF
 
         private double RandomLongitude()
         {
-            lock (random) // Random was no threadsafe
+            lock (random) // Random was not threadsafe
             {
                 return -180.0 + random.NextDouble() * 360.0;
             }
