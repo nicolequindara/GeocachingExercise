@@ -1,0 +1,69 @@
+﻿@model GeocachingExercise.Models.Geocache
+
+
+<h2>Details</h2>
+
+
+<div class="row">
+    <h4>Geocache</h4>
+    <hr />
+    <div class="col-lg-6">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Coordinate.Latitude)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Coordinate.Latitude)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Coordinate.Longitude)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Coordinate.Longitude)
+            </dd>
+
+        </dl>
+        </div>
+    <div class="col-lg-6">
+            <div id="map" style="width:100%;height:300px;"></div>
+        </div>
+</div>
+
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+<script>
+    var map;
+    var coords;
+    var markerTitle;
+
+      function initMap() {
+          coords = { lat: @Model.Coordinate.Latitude, lng: @Model.Coordinate.Longitude }
+          markerTitle ='@Model.Name'
+          
+          map = new google.maps.Map(document.getElementById('map'), {
+              center: coords,
+              zoom: 8,
+              mapTypeId: google.maps.MapTypeId.ROADMAP
+          });
+          
+          var marker = new google.maps.Marker({ position: coords, map: map, title: markerTitle });
+    }
+</script>
+@{
+    String key = System.Configuration.ConfigurationManager.AppSettings["GoogleMapsApiKey"];
+    String url = string.Format("https://maps.googleapis.com/maps/api/js?key={0}&callback=initMap", key);
+}
+<script src='@url' async defer></script>
