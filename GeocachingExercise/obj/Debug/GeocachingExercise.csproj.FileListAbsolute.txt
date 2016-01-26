@@ -54,3 +54,6 @@ C:\Projects\GeocachingExercise\GeocachingExercise\bin\Antlr3.Runtime.pdb
 C:\Projects\GeocachingExercise\GeocachingExercise\bin\Newtonsoft.Json.xml
 C:\Projects\GeocachingExercise\GeocachingExercise\obj\Debug\GeocachingExercise.dll
 C:\Projects\GeocachingExercise\GeocachingExercise\obj\Debug\GeocachingExercise.pdb
+C:\Projects\GeocachingExercise\GeocachingExercise\obj\Debug\GeocachingExercise.csprojResolveAssemblyReference.cache
+C:\Projects\GeocachingExercise\GeocachingExercise\obj\Debug\GeocachingExercise.Migrations.AddGeocacheTable.resources
+C:\Projects\GeocachingExercise\GeocachingExercise\obj\Debug\GeocachingExercise.csproj.GenerateResource.Cache
